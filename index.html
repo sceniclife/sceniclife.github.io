@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Work in progress</title>
+  <!-- CSS Stylesheet -->
+  <link type="text/css" rel="stylesheet" href="css/main.css" />
+
+  <!-- Angular JS & Route -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+  <title>Work in progress</title>
 </head>
-<body>
-    <h1>Just created</h1>
+<body ng-app="sceniclife">
+  <!-- Navigation Bar -->
+  <nav>
+    <div>
+      <a ui-sref="#">D&D AM</a>
+    </div>
+    <ul>
+      <li><a ui-sref="character">Character</a></li>
+      <li><a ui-sref="about">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main View -->
+  <div>
+    <div ui-view></div>
+  </div>
+
+  <!-- Modules -->
+  <script src="js/app.js"></script>
+
+  <!-- Controllers -->
+  <script src="js/ctrl/characterCtrl.js"></script>
+  <script src="js/ctrl/aboutCtrl.js"></script>
 </body>
 </html>
