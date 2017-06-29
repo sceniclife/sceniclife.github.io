@@ -6,11 +6,11 @@ app.config(function($stateProvider, $urlRouterProvider){
     .state("character", {
       url: "/character",
       controller: "characterCtrl",
-      templateUrl: "view/characterView.html"
+      templateUrl: "views/characterView.html"
     })
     .state("about", {
       url: "/about",
       controller: "aboutCtrl",
-      templateUrl: "view/aboutView.html"
+      templateUrl: "views/aboutView.html"
     })
 });
