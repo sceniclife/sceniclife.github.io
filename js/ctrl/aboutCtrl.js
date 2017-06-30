@@ -1,3 +1,3 @@
-app.controller("aboutCtrl", ["$scope", function($scope){
-  
+app.controller("aboutCtrl", ["$scope", "$firebaseObject", function($scope, $firebaseObject){
+  $scope.sessionObj  = $firebaseObject(sessionRef);
 }]);
