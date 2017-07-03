@@ -1,0 +1,14 @@
+<div ui-view class="container">
+  <div class="jumbotron text-center">
+    <h1>Welcome to D&DAM</h1>
+    <p>A Dungeons & Dragons Adventure Manager</p>
+    <hr>
+    <button ng-click="createGame()">Create Game</button>
+    <button ng-click="joinGame()">Join Game</button>
+
+    <!-- Just debugging, erase when done -->
+    <pre class="text-left">
+{{ sessionObj | json }}
+    </pre>
+  </div>
+</div>

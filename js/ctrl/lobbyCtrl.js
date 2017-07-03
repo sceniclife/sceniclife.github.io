@@ -1,40 +1,20 @@
-app.controller("lobbyCtrl", ["$scope", "$firebaseObject", function($scope, $firebaseObject){
-  
-  $scope.sessionObj = $firebaseObject(sessionRef);
+app.controller("lobbyCtrl", ["$scope", "$firebaseObject", "$firebaseArray", function($scope, $firebaseObject, $firebaseArray){ 
+  $scope.sessionObj  = $firebaseObject(sessionRef);
+  $scope.gameRoom = $firebaseObject(sessionRef.getParent());
+  $scope.gameCode = sessionRef.getParent().getKey();
 
-  // Create character from blankCharacter.json
-  $scope.createCharacter = function(){
-    $scope.sessionObj.characterObject = JSON.parse(blankCharacter);
-    $scope.sessionObj.characterObject.character.name = "Viet";
+  $scope.arrayOf = "";
 
-    localStorage["jsoncache"] = JSON.stringify($scope.sessionObj.characterObject);
-    $scope.sessionObj.$save().then(function(ref) {
-      ref.key === $scope.sessionObj.$id; // true
-    }, function(error) {
-       console.log("Error:", error);
-    });
-  };
+  for(item in $scope.gameRoom){
 
-  // Load character from cache
-  $scope.loadCharacter = function(){
-    //todo: ask for character input file
-    $scope.sessionObj.characterObject = JSON.parse(localStorage["jsoncache"]);
-    
-    $scope.sessionObj.$save().then(function(sessionRef) {
-      sessionRef.key === $scope.sessionObj.$id; // true
-    }, function(error) {
-       console.log("Error:", error);
-    });
-  };
+  }
 
-  // Delete character from cache and server
-  $scope.deleteCharacter = function(){
-    localStorage["jsoncache"] = undefined;
+// to take an action after the data loads, use the $loaded() promise
+ //    $scope.gameRoom.$loaded().then(function() {
 
-    $scope.sessionObj.$remove().then(function(sessionRef) {
-      // data has been deleted locally and in the database
-    }, function(error) {
-      console.log("Error:", error);
-    });
-  };
+       // To iterate the key/value pairs of the object, use angular.forEach()
+  //     angular.forEach($scope.gameRoom, function(value, key) {
+   //       console.log(key, value);
+   //    });
+  //   });
 }]);

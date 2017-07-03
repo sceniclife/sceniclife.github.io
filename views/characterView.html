@@ -3,8 +3,49 @@
   <button ng-click="check()">check cache</button>
 
   <div>
-    <p>Name: {{ sessionObj.characterObject.character.name }}</p>
-    <p>Level: {{ sessionObj.characterObject.character.level }}</p>
-    <p>Health: {{ sessionObj.characterObject.character.Health }}</p>
+    <p>Name: {{ sessionObj.characterObject.character.Name }}</p>
+    <p>Level: {{ sessionObj.characterObject.character.Level }}</p>
+    <p>Hit Points: {{ sessionObj.characterObject.character["Hit Points"] }}</p>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Combat</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody ng-repeat="(combatName, combatScore) in sessionObj.characterObject.character.combat">
+            <tr>
+              <td>{{ combatName }}</td>
+              <td>{{ combatScore }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Score</th>
+              <th>Ability</th>
+              <th>Mod</th>
+              <th>Save</th>
+            </tr>
+          </thead>
+          <tbody ng-repeat="(abilityName, abilityScore) in sessionObj.characterObject.character.abilityscores">
+            <tr>
+              <td>{{ abilityScore[0] }}</td>
+              <td>{{ abilityName }}</td>
+              <td>{{ abilityScore[1] }}</td>
+              <td>{{ abilityScore[2] }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
